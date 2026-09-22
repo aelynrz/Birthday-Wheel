@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Technical Configuration -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezra's Gift Picker</title>
+    
+    <!-- Optional but Recommended Icons -->
+    <link rel="icon" href="asset/icon.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="asset/icon.webp">
+
+    <!-- External Link -->
+    <link rel="stylesheet" href="style.css">
+    <script src="sheets.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body class>
+<div class="mg-root" id="mgRoot">
+  <div class="mg-suits-bg">
+    ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦<br>
+    ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠<br>
+    ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦<br>
+    ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠<br>
+    ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦<br>
+    ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠ ♦ ♣ ♥ ♠<br>
+    ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦ ♠ ♥ ♣ ♦</div>
+
+  <!-- NAME GATE -->
+  <div class="mg-gate" id="mgGate">
+    <div class="mg-gate-card">
+      <div class="mg-gate-joker">🂱</div>
+      <div class="mg-gate-title">Who's playing tonight?</div>
+      <div class="mg-gate-sub">The wheel only turns for those who give their name.</div>
+      <input class="mg-gate-input" id="mgNameInput" placeholder="your name" autocomplete="off" />
+      <button class="mg-gate-btn" id="mgGateBtn">TAKE A SEAT ♠</button>
+    </div>
+  </div>
+
+  <div class="mg-hero">
+    <h1 class="mg-title">SPIN TO CLAIM YOUR GIFT</h1>
+    <div class="mg-welcome" id="mgWelcome" style="display:none;"></div>
+  </div>
+
+<div class="mg-main-layout">
+  <!-- LEFT -->
+  <div class="mg-rules-panel side-left">
+    <h3>HOW TO PLAY ?</h3>
+    <ul>
+      <li>Step 1: Enter your real name to begin.</li>
+      <li>Step 2: You can only claim one gift.</li>
+      <li>Step 3: Wild cards allows you to gift anything.</li>
+      <li>Step 4: Spin again or buy the gift.</li>
+    </ul>
+  </div>
+  <!-- MIDDLE -->
+  <div class="mg-wheel-wrap">
+    <div class="mg-wheel-stage">
+      <div class="mg-wheel-ring"></div>
+      <div class="mg-pointer"></div>
+      <div class="mg-wheel-group" id="mgWheelGroup">
+        <svg id="mgWheelSvg" viewBox="0 0 400 400" width="100%" height="100%"></svg>
+      </div>
+      <div class="mg-hub">🎩</div>
+    </div>
+    <button class="mg-spin-btn" id="mgSpinBtn">✦ SPIN THE WHEEL ✦</button>
+    <!-- <div class="mg-empty-note" id="mgEmptyNote" style="display:none;">no cards on the table yet — tap "manage cards" to add gift ideas first</div> -->
+  </div>
+<!-- RIGHT -->
+<div class="mg-rules-panel side-right">
+  <h3>WHY THIS WEBSITE ?</h3>
+  <p>Welcome to the Birthday Gift Wheel! I built this so you can skip the guessing and pick a gift I'll actually love and use. Your bank account stays happy, and I get things I actually want. Full win-win. Spin the wheel and let luck carry!</p>
+</div>
+</div>
+
+<!-- ---------- LIVE GOOGLE SHEETS LEDGER BOARD ---------- -->
+<div class="mg-ledger-container" style="max-width:600px; margin:30px auto; padding:20px; font-family:'Poppins', sans-serif; background:#1c1616; border:1px solid rgba(201, 162, 39, 0.4); border-radius:12px; color:#e3ded5;">
+  <h3 style="margin-top:0; color:#c9a227; text-align:center; font-weight:600; letter-spacing:1px;">🎁 LIVE RESERVATION LEDGER</h3>
+  
+  <table style="width:100%; border-collapse:collapse; font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(201, 162, 39, 0.2); color:#8a8078; text-align:left;">
+        <th style="padding:10px 5px;">Claimed By</th>
+        <th style="padding:10px 5px;">Gift Item</th>
+      </tr>
+    </thead>
+    <!-- The script targets this tbody element directly -->
+    <tbody id="mgLedgerBody">
+      <!-- Default row displayed when Google Sheet data is empty -->
+      <tr id="mgNoClaimsRow">
+        <td colspan="3" style="text-align:center; color:#8a8078; padding:20px 0;">No gifts claimed yet. Be the first to spin!</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="mgToast" class="mg-toast"></div>
