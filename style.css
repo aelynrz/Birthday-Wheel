@@ -396,3 +396,38 @@ html {
   -ms-overflow-style: none;  /* IE and Edge tracking */
   scrollbar-width: none;  /* Firefox track tracking */
 }
+
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES (Keeps Desktop Layout Unchanged)
+   ========================================================================== */
+@media (max-width: 1023px) {
+  /* 1. Force the side-by-side columns to stack vertically on phone screens */
+  .mg-main-layout {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+    padding: 0 16px !important;
+  }
+
+  /* 2. Prevent the info text panels from overflowing the phone viewport edges */
+  .mg-rules-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 20px !important;
+    padding: 0 10px !important;
+  }
+
+  /* 3. Scale down the massive typography headers slightly to sit nicely on mobile */
+  .mg-title {
+    font-size: 28px !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  /* 4. Provide breathing room around the wheel section canvas container */
+  .mg-wheel-wrap {
+    padding: 10px 0 !important;
+    width: 100% !important;
+  }
+}
