@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+.mg-root {
+  --noir: #0a0a0a;
+  --noir-2: #161414;
+  --paper: #f5f1e6;
+  --crimson: #c81d25;
+  --crimson-2: #7d1216;
+  --gold: #c9a227;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at 50% 0%, rgba(26, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 60%);
+  color: var(--paper);
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+}
+
+.mg-root * { box-sizing: border-box; }
+
+.mg-suits-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  font-size: 90px;
+  overflow: hidden;
+  line-height: 1;
+  letter-spacing: 40px;
+  white-space: nowrap;
+  transform: rotate(-8deg) scale(1.3);
+  color: var(--paper);
+}
+
+/* ---------- NAME GATE ---------- */
+.mg-gate {
+  position: fixed;
+  inset: 0;
+  background: url(asset/aib.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+
+.mg-gate-card {
+  width: 100%;
+  max-width: 440px;
+  min-height: 440px;
+  background: linear-gradient(160deg, #171313, #0c0a0a);
+  border: 1px solid rgba(201,162,39,0.35);
+  border-radius: 18px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.mg-gate-joker {
+  font-size: 46px;
+  margin-bottom: 6px;
+}
+.mg-gate-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--paper);
+  margin: 0 0 6px;
+}
+.mg-gate-sub {
+  font-size: 12.5px;
+  color: #b8ada0;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.mg-gate-input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,162,39,0.4);
+  border-radius: 10px;
+  padding: 13px 14px;
+  color: var(--paper);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  margin-bottom: 16px;
+}
+.mg-gate-input:focus { border-color: var(--crimson); }
+.mg-gate-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(120deg, var(--crimson), var(--crimson-2));
+  color: var(--paper);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.mg-gate-btn:hover { transform: translateY(-2px); }
+.mg-gate-hint { font-size: 10.5px; color: #7a7068; margin-top: 12px; letter-spacing: 0.5px; }
+
+/* ---------- HEADER ---------- */
+.mg-hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 42px 20px 10px;
+}
+.mg-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.mg-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 500; /* Slightly crisper weight to make the colors punchier */
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+
+  /* High-Contrast White to Saturated Crimson Gradient */
+  background: linear-gradient(to bottom, #ffffff 25%, #e61922 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Sharp, high-contrast structural shadow instead of a soft blur */
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
+}
+
+.mg-subtitle {
+  font-size: 13px;
+  color: #b8ada0;
+  margin-top: 10px;
+}
+.mg-welcome {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--crimson);
+  border: 1px solid rgba(200,29,37,0.4);
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+.mg-main-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px ; 
+  width: 100% ;
+  max-width: 1300px ;
+  margin: 20px auto 0 auto ;
+  box-sizing: border-box ;
+}
+
+.mg-rules-panel {
+  flex: 1 ;
+  width: 100%;
+  min-width: 400px ;
+  max-width: 500px ;
+  box-sizing: border-box ;
+  margin-top: 50px;
+}
+
+/* ---------- WHEEL ---------- */
+.mg-wheel-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 10px;
+}
+
+.mg-wheel-stage {
+  position: relative;
+  width: min(400px, 88vw);
+  height: min(400px, 88vw);
+}
+
+.mg-pointer {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 26px solid var(--gold);
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+}
+
+.mg-wheel-group {
+  width: 100%;
+  height: 100%;
+  transition: transform 4.2s cubic-bezier(0.12, 0.67, 0.1, 1);
+  will-change: transform;
+}
+
+.mg-wheel-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 40px rgba(201,162,39,0.25), inset 0 0 30px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+
+.mg-hub {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1c1616, #0a0a0a);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 5;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.mg-spin-btn {
+  margin-top: 30px;
+  padding: 15px 40px;
+  border-radius: 999px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(120deg, #1c1616, #0a0a0a);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mg-spin-btn:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--noir);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(201,162,39,0.3);
+}
+.mg-spin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.mg-empty-note {
+  margin-top: 20px;
+  font-size: 12.5px;
+  color: #8a8078;
+  text-align: center;
+  max-width: 280px;
+}
+
+/* ---------- RESULT MODAL ---------- */
+.mg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,4,4,0.78);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 20px;
+}
+.mg-modal {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(160deg, #a76464,#e2e86f);
+  border: 1px solid rgba(201,162,39,0.35);
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  position: relative;
+}
+.mg-modal-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 3px;
+  color: var(--crimson);
+  margin-bottom: 10px;
+}
+.mg-modal-emoji { font-size: 40px; margin-bottom: 8px; }
+.mg-modal-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--paper);
+  margin: 0 0 6px;
+}
+.mg-modal-note { font-size: 12.5px; color: #b8ada0; margin-bottom: 6px; line-height: 1.5; }
+.mg-modal-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--gold); margin-bottom: 18px; }
+.mg-modal-meta a { color: var(--gold); }
+
+.mg-modal-actions { display: flex; gap: 10px; }
+.mg-btn { flex: 1; padding: 12px; border-radius: 10px; border: none; font-family: 'Cinzel', serif; font-weight: 700; font-size: 12.5px; letter-spacing: 0.5px; cursor: pointer; }
+.mg-btn-buy { background: linear-gradient(120deg, var(--crimson), var(--crimson-2)); color: var(--paper); }
+.mg-btn-buy:hover { filter: brightness(1.1); }
+.mg-btn-again { background: rgba(255,255,255,0.06); color: var(--paper); border: 1px solid rgba(255,255,255,0.2); }
+.mg-btn-again:hover { background: rgba(255,255,255,0.12); }
+
+.mg-wild-list { text-align: left; max-height: 260px; overflow-y: auto; margin-bottom: 16px; }
+.mg-wild-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 12px; border-radius: 8px; margin-bottom: 8px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer; font-size: 13px;
+}
+.mg-wild-item:hover { background: rgba(200,29,37,0.15); border-color: var(--crimson); }
+.mg-wild-item span.mg-wp { color: var(--gold); font-family: 'Space Mono', monospace; font-size: 11px; }
+
+/* ---------- MANAGE PANEL ---------- */
+.mg-manage-modal { max-width: 460px; text-align: left; }
+.mg-manage-modal .mg-modal-title { text-align: center; }
+.mg-add-form { display: grid; gap: 10px; margin-bottom: 18px; }
+.mg-add-form input, .mg-add-form textarea {
+  width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px; padding: 10px 12px; color: var(--paper); font-family: 'Poppins', sans-serif; font-size: 13px; outline: none;
+}
+.mg-add-form input:focus, .mg-add-form textarea:focus { border-color: var(--crimson); }
+.mg-add-form label { font-family: 'Space Mono', monospace; font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; display: block; }
+.mg-list-existing { max-height: 220px; overflow-y: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; }
+.mg-list-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 4px; font-size: 12.5px; border-bottom: 1px dashed rgba(255,255,255,0.08); }
+.mg-list-row .mg-claimed-tag { color: var(--crimson); font-family: 'Space Mono', monospace; font-size: 10px; }
+.mg-row-del { background: none; border: none; color: #8a8078; cursor: pointer; font-size: 13px; }
+.mg-row-del:hover { color: var(--crimson); }
+.mg-close-x { position: absolute; top: 14px; right: 16px; background: none; border: none; color: #8a8078; font-size: 18px; cursor: pointer; }
+
+.mg-toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--paper); color: var(--noir); font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;
+  padding: 12px 20px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 100; pointer-events: none;
+}
+.mg-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mg-wheel-group { transition: none; }
+}
+
+/* 1. Desktop & Laptop viewports: Lock elements tightly to a single viewport canvas */
+@media (min-width: 1024px) {
+  html, body {
+    height: 100vh;
+    overflow: hidden; /* Removes the primary scroll bar completely */
+  }
+  
+  /* Arrange components side-by-side instead of stacking vertically */
+  .main-app-wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+/* 2. Mobile & Tablet viewports: Automatically allow standard scrolling tracking loops */
+@media (max-width: 1023px) {
+  html, body {
+    height: auto;
+    overflow-y: auto; /* Lets phone users read comfortably down the page */
+  }
+}
+
+/* Hide standard browser scrollbar tracks completely */
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome layout track */
+}
+
+html {
+  -ms-overflow-style: none;  /* IE and Edge tracking */
+  scrollbar-width: none;  /* Firefox track tracking */
+}
+
+
+/* ==========================================================================
+   ELIMINATE MOBILE HORIZONTAL WIGGLE & LOCK VERTICAL SCROLL
+   ========================================================================== */
+@media (max-width: 1023px) {
+  /* Prevent the body and root containers from shifting sideways */
+  html, body, .mg-root {
+    overflow-x: hidden !important;
+    position: relative;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Clip any loose background decoration strings from pushing outward */
+  .mg-suits-bg {
+    display: none !important; /* Safely hides the oversized background icons on mobile */
+  }
+
+  /* Ensure the wheel canvas container itself never breaches screen bounds */
+  .mg-wheel-stage {
+    width: min(340px, 85vw) !important;
+    height: min(340px, 85vw) !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE-FIRST IMPROVEMENTS
+   ========================================================== */
+
+@media (max-width: 767px) {
+
+  .mg-root {
+    padding-bottom: 30px;
+  }
+
+  /* Main page becomes one clean vertical column */
+  .mg-main-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 22px !important;
+    margin-top: 10px !important;
+    padding: 0 16px;
+  }
+
+  /* Put wheel first */
+  .mg-wheel-wrap {
+    order: 1;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .side-left {
+    order: 2;
+  }
+
+  .side-right {
+    order: 3;
+  }
+
+  /* Remove desktop width restriction */
+  .mg-rules-panel {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 520px !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .mg-hero {
+    padding: 24px 16px 6px;
+  }
+
+  .mg-title {
+    font-size: clamp(24px, 8vw, 32px);
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+  }
+
+  .mg-welcome {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .mg-wheel-stage {
+    width: min(370px, 90vw) !important;
+    height: min(370px, 90vw) !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .mg-spin-btn {
+    width: min(320px, 86vw);
+    min-height: 54px;
+    margin-top: 24px;
+    padding: 16px 20px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .mg-rules-panel {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(201,162,39,0.20);
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  .mg-rules-panel h3 {
+    margin: 0 0 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: var(--gold);
+  }
+
+  .mg-rules-panel p,
+  .mg-rules-panel li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #d0c8bd;
+  }
+
+  .mg-rules-panel ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .mg-gate {
+    padding: 16px;
+    align-items: center;
+  }
+
+  .mg-gate-card {
+    width: 100%;
+    max-width: 360px;
+    min-height: auto;
+    padding: 28px 20px;
+  }
+
+  .mg-gate-title {
+    font-size: 20px;
+  }
+
+  .mg-gate-sub {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  .mg-gate-input {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  .mg-gate-btn {
+    min-height: 50px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .mg-modal {
+    padding: 24px 18px;
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
+
+  .mg-modal-actions {
+    flex-direction: column;
+  }
+
+  .mg-btn {
+    min-height: 48px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .mg-ledger-container {
+    margin: 24px 16px !important;
+    padding: 16px !important;
+  }
+
+  #mgLedgerBody tr.mg-claim-row {
+    display: block;
+    padding: 12px 0;
+  }
+
+  #mgLedgerBody tr.mg-claim-row td {
+    display: block;
+    width: 100%;
+    padding: 4px 0 !important;
+  }
+
+  .mg-user-cell {
+    font-size: 13px;
+  }
+
+  .mg-gift-cell {
+    font-size: 14px;
+  }
+
+  .mg-ledger-container thead {
+    display: none;
+  }
+}
